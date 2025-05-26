@@ -51,6 +51,7 @@
 		trigger = &trigger;
 		trigger2 = &trigger2;
         // trigger = &trigger_gpios;
+		watchdog0 = &wdt0;
     };
 
  };

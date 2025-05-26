@@ -10,3 +10,4 @@ extern const struct gpio_dt_spec trigger;
 extern const struct gpio_dt_spec trigger2;
 
 int setup_gpio();
+int setup_led();

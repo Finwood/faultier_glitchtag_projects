@@ -28,3 +28,14 @@ int setup_gpio() {
 
     return 0;
 }
+
+int setup_led() {
+	if (!gpio_is_ready_dt(&led)) {
+		return 1;
+	}
+
+	int ret = gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
+	if (ret < 0) {
+		return 1;
+	}
+}
