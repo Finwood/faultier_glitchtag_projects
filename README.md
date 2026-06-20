@@ -28,7 +28,7 @@ uv run west zephyr-export
 From the repo root:
 
 ```bash
-uv run west build -b hextree_glitchtag -p always apps/simple_glitch
+uv run west build -b glitchtag -p always apps/simple_glitch
 ```
 
 Replace `apps/simple_glitch` with any app under `apps/`.
@@ -39,7 +39,7 @@ Replace `apps/simple_glitch` with any app under `apps/`.
 uv run west flash
 ```
 
-Flash runners (JLink, pyOCD, nrfjprog) are configured in `boards/hextree/hextree_glitchtag/board.cmake`.
+Flash runners (JLink, pyOCD, nrfjprog) are configured in `boards/hextree/glitchtag/board.cmake`.
 
 ## Layout
 
@@ -50,7 +50,7 @@ faultier_glitchtag_projects/
 ├── west.yml
 ├── zephyr/module.yml
 ├── apps/           # application firmware
-├── boards/         # hextree_glitchtag out-of-tree board
+├── boards/         # glitchtag out-of-tree board
 ├── common/         # shared app code
 └── deps/           # west-managed Zephyr + modules (gitignored)
 ```

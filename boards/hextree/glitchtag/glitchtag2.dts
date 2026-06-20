@@ -5,8 +5,8 @@
 #include <nordic/nrf52832_qfaa.dtsi>
 
 / {
-	model = "Hextree GlitchTag";
-	compatible = "hextree,hextree-glitchtag";
+	model = "GlitchTag";
+	compatible = "hextree,glitchtag";
 
 	chosen {
 		zephyr,sram = &sram0;

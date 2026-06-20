@@ -1,9 +1,9 @@
 # Copyright (c) 2024 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-if BOARD_HEXTREE_GLITCHTAG
+if BOARD_GLITCHTAG
 
 config BOARD
-	default "hextree_glitchtag"
+	default "glitchtag"
 
 endif
