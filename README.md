@@ -1,35 +1,62 @@
-## Setup SDK
+# Hextree Glitch Tag
 
-Download nRF-util from: https://www.nordicsemi.com/Products/Development-tools/nRF-Util/Download#infotabs
+Software for the [Hextree](https://www.hextree.io/) [Glitch Tag](https://1bitsquared.com/products/glitch-tag).
 
-Then run:
-```
-nrfutil  install device
-nrfutil  install sdk-manager
-nrfutil sdk-manager search
-# Get latest stable version and replace it below
-nrfutil sdk-manager install v2.9.1
+## Setup
 
-# During install it will show where the SDK is installed
-# [00:01:41] ###### 100% [Download toolchain v2.9.1] Toolchain downloaded
-# [00:00:12] ###### 100% [Unpack toolchain v2.9.1] Toolchain unpacked to /opt/nordic/ncs/tmp/.tmpRNvpOV
-# [00:00:00] ###### 100% [Install toolchain v2.9.1] Toolchain installed at /opt/nordic/ncs/toolchains/b8efef2ad5
-# [00:01:01] ##----  20% [Download SDK v2.9.1] Downloading
+### Prerequisites
 
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+- [Zephyr SDK](https://github.com/zephyrproject-rtos/sdk-ng) installed (e.g. `/opt/zephyr-sdk-1.0.1`), minimal bundle recommended
+    - `arm-zephyr-eabi` toolchain installed (via `setup.sh -t arm-zephyr-eabi -h -c`)
+
+### One-time workspace setup
+
+```bash
+cd faultier_glitchtag_projects
+
+# Python deps (west + full Zephyr requirements)
+uv sync
+
+# In-place T2 west workspace: manifest repo is also the workspace root.
+uv run west update --narrow --fetch-opt=--depth=1
+uv run west zephyr-export
 ```
 
 ## Building
 
+From the repo root:
+
+```bash
+uv run west build -b hextree_glitchtag -p always apps/simple_glitch
+```
+
+Replace `apps/simple_glitch` with any app under `apps/`.
+
+## Flashing
+
+```bash
+uv run west flash
+```
+
+Flash runners (JLink, pyOCD, nrfjprog) are configured in `boards/hextree/hextree_glitchtag/board.cmake`.
+
+## Layout
 
 ```
-# Extend path to nordic toolchain
-export PATH=/opt/nordic/ncs/toolchains/f8037e9b83/bin:$PATH
+faultier_glitchtag_projects/
+├── pyproject.toml  # uv project + Zephyr Python deps
+├── uv.lock
+├── west.yml
+├── zephyr/module.yml
+├── apps/           # application firmware
+├── boards/         # hextree_glitchtag out-of-tree board
+├── common/         # shared app code
+└── deps/           # west-managed Zephyr + modules (gitignored)
+```
 
-# Source SDK
-source /opt/nordic/ncs/v2.6.1/zephyr/zephyr-env.sh
+To refresh Python dependencies after a Zephyr upgrade:
 
-# build
-mkdir build && cd build
-cmake .. -DBOARD_ROOT=. -DBOARD=hextree_glitchtag
-make
+```bash
+uv add --requirement deps/zephyr/scripts/requirements.txt --group zephyr
 ```
