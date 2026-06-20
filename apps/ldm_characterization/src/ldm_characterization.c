@@ -33,7 +33,7 @@ __ramfunc void glitch_target() {
 	print_uart("OKAY");
 
 	// Send all 14 registers to the host
-	write_uart(register_output, sizeof(register_output));
+	write_uart((char *)register_output, sizeof(register_output));
 
 	while(1) {}
 }

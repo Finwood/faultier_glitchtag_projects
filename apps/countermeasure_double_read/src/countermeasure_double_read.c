@@ -66,7 +66,7 @@ __ramfunc void glitch_target() {
 	k_msleep(2);
 
 	printf_uart("OKAY");
-	write_uart(&dst, 4);
+	write_uart((char *)&dst, 4);
 
 	while(1) {}
 }
