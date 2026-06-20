@@ -1,0 +1,5 @@
+name: faultier_glitchtag_projects
+
+build:
+  settings:
+    board_root: .
