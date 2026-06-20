@@ -3,4 +3,4 @@
 
 config BOARD_HEXTREE_GLITCHTAG
 	bool "Hextree GlitchTag"
-	depends on SOC_NRF52832_QFAA
+	select SOC_NRF52832_QFAA

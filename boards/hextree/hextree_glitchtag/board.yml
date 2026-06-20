@@ -1,0 +1,6 @@
+board:
+  name: hextree_glitchtag
+  full_name: Hextree GlitchTag
+  vendor: hextree
+  socs:
+  - name: nrf52832

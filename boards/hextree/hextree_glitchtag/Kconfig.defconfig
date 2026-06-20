@@ -6,8 +6,4 @@ if BOARD_HEXTREE_GLITCHTAG
 config BOARD
 	default "hextree_glitchtag"
 
-config BT_CTLR
-   default BT
-
-
 endif
