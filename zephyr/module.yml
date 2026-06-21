@@ -1,5 +1,6 @@
 name: faultier_glitchtag_projects
 
 build:
+  cmake: common
   settings:
     board_root: .
