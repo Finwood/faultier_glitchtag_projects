@@ -29,7 +29,6 @@ static inline void random_delay() {
 }
 
 __ramfunc void glitch_target() {
-	uint32_t foo = 0;
 	gpio_pin_set_dt(&trigger, 1);
 	k_msleep(1);
 	gpio_pin_set_dt(&trigger, 0);

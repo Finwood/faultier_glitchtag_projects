@@ -1,0 +1,8 @@
+common:
+  platform_allow:
+    - glitchtag
+  tags:
+    - glitchtag
+tests:
+  apps.countermeasure_double_read.build:
+    build_only: true

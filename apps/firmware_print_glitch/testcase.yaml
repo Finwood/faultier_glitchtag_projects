@@ -1,0 +1,8 @@
+common:
+  platform_allow:
+    - glitchtag
+  tags:
+    - glitchtag
+tests:
+  apps.firmware_print_glitch.build:
+    build_only: true

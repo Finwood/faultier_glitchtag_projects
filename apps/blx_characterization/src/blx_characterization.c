@@ -12,8 +12,6 @@ __ramfunc void glitch_target() {
 	//  Indicate reset to our glitcher
 	print_uart("RST");
 
-	uint32_t output;
-
 	// Generate a short trigger signal on IO 2
 	gpio_pin_set_dt(&trigger, 1);
 	k_msleep(1);

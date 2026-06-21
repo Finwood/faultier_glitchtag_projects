@@ -1,0 +1,8 @@
+common:
+  platform_allow:
+    - glitchtag
+  tags:
+    - glitchtag
+tests:
+  apps.bx_characterization.build:
+    build_only: true

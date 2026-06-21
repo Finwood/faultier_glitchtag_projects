@@ -91,7 +91,7 @@ __ramfunc void glitch_target() {
 	while(1) {}
 }
 
-#pragma GCC pop_optimizations
+#pragma GCC pop_options
 
 int main(void)
 {

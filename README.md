@@ -33,6 +33,14 @@ uv run west build -b glitchtag -p always apps/simple_glitch
 
 Replace `apps/simple_glitch` with any app under `apps/`.
 
+## Twister
+
+Each app includes a `testcase.yaml` for compile-only verification on the GlitchTag board. From the repo root:
+
+```bash
+uv run west twister -T apps -p glitchtag
+```
+
 ## Flashing
 
 ```bash

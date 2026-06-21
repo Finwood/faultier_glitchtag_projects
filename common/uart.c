@@ -50,7 +50,8 @@ void serial_cb(const struct device *dev, void *user_data)
 
 			/* if queue is full, message is silently dropped */
 			uint32_t r = 0;
-			if(r = k_msgq_put(&uart_msgq, &rx_buf, K_NO_WAIT) != 0) {
+			if((r = k_msgq_put(&uart_msgq, &rx_buf, K_NO_WAIT)) != 0) {
+				/* silently drop the message */
 			}
 
 			/* reset the buffer (it was copied to the msgq) */
@@ -65,7 +66,7 @@ void serial_cb(const struct device *dev, void *user_data)
 /*
  * Print a null-terminated string character by character to the UART interface
  */
-void print_uart(char *buf)
+void print_uart(const char *buf)
 {
 	int msg_len = strlen(buf);
 
@@ -74,7 +75,7 @@ void print_uart(char *buf)
 	}
 }
 
-void write_uart(char *buf, size_t length) {
+void write_uart(const char *buf, size_t length) {
 	for (int i = 0; i < length; i++) {
 		uart_poll_out(uart_dev, buf[i]);
 	}

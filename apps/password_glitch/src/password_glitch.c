@@ -15,8 +15,6 @@ __ramfunc void glitch_target() {
 		//  Indicate reset to our glitcher
 		print_uart("Welcome to GlitchTag Wallet! Please enter your password:\r\n");
 
-		uint32_t register_output[14] = {0};
-
 		// Generate a short trigger signal on IO 2
 		char *entered_password = read_uart();
 

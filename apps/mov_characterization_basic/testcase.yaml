@@ -1,0 +1,8 @@
+common:
+  platform_allow:
+    - glitchtag
+  tags:
+    - glitchtag
+tests:
+  apps.mov_characterization_basic.build:
+    build_only: true
