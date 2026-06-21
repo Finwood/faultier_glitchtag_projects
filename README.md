@@ -33,6 +33,8 @@ uv run west build -b glitchtag -p always apps/simple_glitch
 
 Replace `apps/simple_glitch` with any app under `apps/`.
 
+After a build, `compile_commands.json` is symlinked to the repository root for IDE use (clangd, etc.).
+
 ## Twister
 
 Each app includes a `testcase.yaml` for compile-only verification on the GlitchTag board. From the repo root:
