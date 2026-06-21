@@ -67,3 +67,11 @@ zephyr = [
     "windows-curses>=2.4.2 ; sys_platform == 'win32'",
     "yamllint>=1.38.0",
 ]
+
+# Notebook dependencies (see apps/*/notebooks/).
+faultier = [
+    "faultier>=0.2.2",
+    "pyserial",
+    "jupyter",
+    "ipykernel",
+]
